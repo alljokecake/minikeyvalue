@@ -19,11 +19,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: rustup toolchain install nightly --profile minimal
+      - run: |
+          rustup toolchain install nightly --profile minimal
+          rustup component add clippy --toolchain nightly-x86_64-unknown-linux-gnu`
 
       - uses: Swatinem/rust-cache@v2
 
-      - run: cargo fmt --check
-      - run: cargo clippy --workspace -- -Dwarnings
-      - run: cargo build --workspace
-      - run: cargo test --workspace
+      - run: |
+          cargo +nightly fmt -- --check
+          cargo clippy --workspace -- -Dwarnings
+          cargo build --workspace
+          cargo test --workspace
