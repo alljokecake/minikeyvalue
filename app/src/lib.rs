@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 mod database;
 
 use std::collections::HashMap;
@@ -14,6 +12,7 @@ use leveldb::options::{ReadOptions, WriteOptions};
 
 use commands::Options;
 
+#[allow(dead_code)]
 pub struct App {
     db: Arc<Database<i32>>,
     mlock: Mutex<()>,
