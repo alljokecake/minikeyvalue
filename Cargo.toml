@@ -1,0 +1,54 @@
+[package]
+name = "minikeyvalue"
+version = "0.1.0"
+authors = ["Ilhan Burcak Bas <ilhanburcakbas@gmail.com>"]
+edition = "2021"
+
+description = "A distributed key value store."
+repository = "https://github.com/schlanqe/minikeyvalue"
+license = "MIT"
+readme = "./README.md"
+
+exclude = [
+    "*.md",
+    ".github/",
+    ".gitignore",
+]
+
+[lints]
+workspace = true
+
+[dependencies]
+app = { path = "./app" }
+commands = { path = "./commands" }
+tools = { path = "./tools" }
+
+anyhow.workspace = true
+clap.workspace = true
+leveldb.workspace = true
+rand.workspace = true
+uuid.workspace = true
+
+[workspace.dependencies]
+anyhow = "1.0.79"
+clap = { version = "4.4.18", features = ["derive"] }
+leveldb = "0.8.6"
+rand = "0.8.5"
+uuid = "1.7.0"
+
+[workspace]
+members = [
+    "app",
+    "commands",
+    "tools",
+]
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+rust_2018_idioms = "deny"
+
+[workspace.lints.clippy]
+from_over_into = "allow"
+len_without_is_empty = "allow"
+new_without_default = "allow"
+should_implement_trait = "allow"

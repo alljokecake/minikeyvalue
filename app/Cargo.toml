@@ -1,0 +1,12 @@
+[package]
+name = "app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+commands = { path = "../commands" }
+
+anyhow.workspace = true
+clap.workspace = true
+rand.workspace = true
+leveldb.workspace = true
