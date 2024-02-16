@@ -39,6 +39,24 @@ impl Record {
     }
 
     pub fn record_from(&self) -> &[u8] {
+        let mut cc = String::new();
+
+        match self.deleted {
+            Deleted::No => {},
+            Deleted::Soft => {
+                cc.push_str("DELETED");
+            },
+            Deleted::Hard => {
+                panic!("Can't put HARD delete in the database");
+            },
+        }
+        if self.hash.len() == 32 {
+            cc.push_str(&format!("HASH{}", self.hash));
+        }
+        
+        let rvolumes_str = self.rvolumes.join(",");
+        cc.push_str(&rvolumes_str);
+
         todo!()
     }
 
