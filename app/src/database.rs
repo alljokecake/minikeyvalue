@@ -11,6 +11,7 @@ pub fn from_path(path: PathBuf) -> Result<Database<i32>, Error> {
     Ok(Database::open(&path, options)?)
 }
 
+#[allow(unused)]
 pub enum Deleted {
     No = 0,
     Soft = 1,
@@ -53,7 +54,7 @@ impl Record {
         if self.hash.len() == 32 {
             cc.push_str(&format!("HASH{}", self.hash));
         }
-        
+
         let rvolumes_str = self.rvolumes.join(",");
         cc.push_str(&rvolumes_str);
 
