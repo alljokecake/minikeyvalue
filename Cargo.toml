@@ -5,7 +5,7 @@ authors = ["Ilhan Burcak Bas <ilhanburcakbas@gmail.com>"]
 edition = "2021"
 
 description = "A distributed key value store."
-repository = "https://github.com/schlanqe/minikeyvalue"
+repository = "https://github.com/alljokecake/minikeyvalue"
 license = "MIT"
 readme = "./README.md"
 
